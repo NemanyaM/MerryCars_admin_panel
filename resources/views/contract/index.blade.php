@@ -15,7 +15,11 @@
                                         {{$contract->created_at->diffForHumans()}}
                                     </a>
                                 </h4>
-                                <div class="body">{{$contract->name}}</div>
+                                <div class="body">{{$contract->name}}
+                                    <form action="/pdf/{{ $contract->id }}" method="GET" class="pull-right">
+                                        <button class="btn btn-primary" type="submit">PDF</button>
+                                    </form>
+                                </div>
                             </article>
                             <hr/>
                         @endforeach
@@ -25,3 +29,4 @@
         </div>
     </div>
 @endsection
+

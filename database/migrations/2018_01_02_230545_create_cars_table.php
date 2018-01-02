@@ -15,16 +15,17 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('car_name');
-            $table->string('car_model');
             $table->string('partner');
-            $table->string('location');
-            $table->string('price_fixed')->nullable();
+            $table->string('car');
+            $table->string('model');
+            $table->string('plates');
+            $table->string('location')->nullable();
+            $table->string('price')->nullable();
             $table->string('price_per_hour')->nullable();
-            $table->timestamp('busy_from')->nullable();
-            $table->timestamp('free_from')->nullable();
-            $table->string('address_deliver');
-            $table->string('deleted_at');
+            $table->string('condition')->nullable();
+            $table->string('start_date')->nullable();
+            $table->string('end_date')->nullable();
+            $table->string('deleted_at')->nullable();
             $table->timestamps();
         });
     }
