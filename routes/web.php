@@ -10,5 +10,7 @@ Route::get('events', 'EventController@index');
 
 Route::get('/pdf/{id}', 'PDFController@pdf');
 
+Route::resource('car/', 'CarController');
+
 Auth::routes();
 

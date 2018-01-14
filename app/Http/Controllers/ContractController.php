@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Car;
 use App\Event;
 use App\Contract;
 use Carbon\Carbon;
@@ -31,7 +32,8 @@ class ContractController extends Controller
      */
     public function create()
     {
-        return view('contract.create');
+        $cars = Car::get();
+        return view('contract.create', compact('cars'));
     }
     /**
      * Store a newly created resource in storage.
@@ -45,26 +47,33 @@ class ContractController extends Controller
             DB::begintransaction();
 
             $contract = new Contract;
-            $contract->name = $request->get('name');
-            $contract->email = $request->get('email');
-            $contract->phone = $request->get('phone');
             $contract->date = $request->get('date');
-            $contract->partner = $request->get('partner');
+            $contract->name = $request->get('name');
             $contract->car = $request->get('car');
             $contract->model = $request->get('model');
+            $contract->plates = $request->get('plates');
+            $contract->time = $request->get('time');
+            $contract->plus_hours = $request->get('plus_hours');
+            $contract->start_date = $request->get('start_date');
+            $contract->end_date = $request->get('end_date');
+            $contract->email = $request->get('email');
+            $contract->phone = $request->get('phone');
             $contract->address_deliver = $request->get('address_deliver');
+            $contract->contact_person = $request->get('contact_person');
             $contract->address_pickup = $request->get('address_pickup');
-            $contract->discount = $request->get('discount');
             $contract->decorations = $request->get('decorations');
+            $contract->decorations_price = $request->get('decorations_price');
+            $contract->extras = $request->get('extras');
+            $contract->total_price = $request->get('total_price');
+            $contract->pre_price = $request->get('pre_price');
             $contract->save();
 
             $event = new Event;
             $event->title = $request->get('car');
             $event->contract_id = $contract->id;
-            $event->start_date = $request->get('date');
-            $event->end_date =  Carbon::now()->addDays(3);
+            $event->start_date = $request->get('start_date');
+            $event->end_date = $request->get('end_date');
             $event->save();
-
             DB::commit();
 
             return redirect($contract->path());

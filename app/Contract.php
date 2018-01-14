@@ -9,23 +9,32 @@ class Contract extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = [
+    protected $dates = ['deleted_at'];
+
+    protected $guarded = [
         'name'
-        ,'partner'
+        ,'plates'
         ,'car'
         ,'model'
         ,'address_deliver'
         ,'address_pickup'
-        ,'discount'
+        ,'time'
+        ,'plus_hours'
         ,'decorations'
-        ,'price_per_hour'
+        ,'decorations_price'
+        ,'contact_person'
         ,'email'
         ,'phone'
         ,'date'
-        ,'time_to_wait'
-        ,'car_location'
+        ,'start_date'
+        ,'end_date'
+        ,'extras'
+        ,'total_price'
+        ,'pre_price'
         ,'date'
     ];
+
+    use SoftDeletes;
 
 
     public function path()

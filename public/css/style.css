@@ -1,0 +1,22 @@
+.nps-date{
+    background-color: #fff !important;
+    background-image: none !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
+    color: #555 !important;
+    display: block !important;
+    font-size: 14px !important;
+    height: 34px !important;
+    line-height: 1.42857 !important;
+    padding: 0px 0px !important;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s !important;
+    width: 152px !important;
+}
+
+.ui-datepicker th {
+    border: 0 none !important;
+    font-weight: bold !important;
+    padding: 0.0em 0.0em !important;
+    text-align: center !important;
+}

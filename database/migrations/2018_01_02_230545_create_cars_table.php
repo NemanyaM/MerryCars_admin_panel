@@ -22,10 +22,10 @@ class CreateCarsTable extends Migration
             $table->string('location')->nullable();
             $table->string('price')->nullable();
             $table->string('price_per_hour')->nullable();
-            $table->string('condition')->nullable();
+            $table->text('condition')->nullable();
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
-            $table->string('deleted_at')->nullable();
+            $table->softDeletes('deleted_at');
             $table->timestamps();
         });
     }
