@@ -62,12 +62,12 @@
 
                             <div class="form-group">
                                 <label for="date">Start date:</label><br>
-                                <input id="StartDate" class="nps-date" type="text" name="start_date" value="{{ \Carbon\Carbon::now() }}"><br><br>
+                                <input id="StartDate" class="form-control" type="text" name="start_date" data-date-format="yy-dd-mm"><br><br>
                             </div>
 
                             <div class="form-group">
                                  <label for="date">End date:</label><br>
-                                 <input id="EndDate" class="nps-date" type="text" value="{{ \Carbon\Carbon::now() }}" name="end_date"><br><br>
+                                 <input id="EndDate" class="form-control" type="text" name="end_date" data-date-format="yy-dd-mm"><br><br>
                             </div>
 
                             <div class="form-group">
@@ -127,29 +127,26 @@
             </div>
         </div>
     </div>
+    <script>
 
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-
-<script>
-
-
-        $("#StartDate").datepicker({
-            dateFormat: "yy-mm-dd",
-            minDate:0,
-            onSelect: function (date) {
-                var dt2 = $('#EndDate');
-                var startDate = $(this).datepicker('getDate');
-                startDate.setDate(startDate.getDate() + 30);
-                dt2.datepicker('option', 'maxDate', startDate);
-                $(this).datepicker('option');
-            }
-        });
-        $('#EndDate').datepicker({
-            dateFormat: "yy-mm-dd",
-            minDate: 0
+        $(document).ready(function(){
+            $("#StartDate").datepicker({
+                dateFormat: 'yy-mm-dd',
+                numberOfMonths: 2,
+                onSelect: function(selected) {
+                    $("#EndDate").datepicker("option","minDate", selected)
+                }
+            });
+            $("#EndDate").datepicker({
+                dateFormat: 'yy-mm-dd',
+                numberOfMonths: 2,
+                onSelect: function(selected) {
+                    $("#StartDate").datepicker("option","maxDate", selected)
+                }
+            });
         });
 
-</script>
+
+    </script>
 
 @endsection
