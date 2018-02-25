@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Car;
+use App\Diary;
 use App\Event;
 use App\Contract;
+use App\Finance;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -49,7 +51,11 @@ class ContractController extends Controller
             $contract = new Contract;
             $contract->date = $request->get('date');
             $contract->name = $request->get('name');
+            $contract->lastname = $request->get('lastname');
+            $contract->middlename = $request->get('middlename');
             $contract->car = $request->get('car');
+            $contract->choose_car_price = $request->get('choose_car_price');
+            $contract->amount_of_hours = $request->get('amount_of_hours');
             $contract->model = $request->get('model');
             $contract->plates = $request->get('plates');
             $contract->time = $request->get('time');
@@ -69,17 +75,33 @@ class ContractController extends Controller
             $contract->save();
 
             $event = new Event;
-            $event->title = $request->get('car');
             $event->contract_id = $contract->id;
-            $event->start_date = $request->get('start_date');
-            $event->end_date = $request->get('end_date');
+            $event->car = $request->get('car');
+            $event->event_date = $request->get('start_date');
+            $event->time_to_finish = $request->get('end_date');
             $event->save();
+
+            $diary = new Diary;
+            $diary->contract_id = $contract->id;
+            $diary->reservation_date = $request->get('date');
+            $diary->event_date = $request->get('start_date');
+            $diary->save();
+
+            $finance = new Finance;
+            $finance->contract_id = $contract->id;
+            $finance->sum = $request->get('total_price');
+            $finance->event_date = $request->get('start_date');
+            $finance->reserve_date = $request->get('date');
+            $finance->save();
+
             DB::commit();
 
             return redirect($contract->path());
 
         } catch (\Exception $e){
             DB::rollback();
+
+            return back('No success saving data');
         }
     }
     /**

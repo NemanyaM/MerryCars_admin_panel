@@ -17,7 +17,10 @@
                                 </h4>
                                 <div class="body">{{$contract->name}}
                                     <form action="/pdf/{{ $contract->id }}" method="GET" class="pull-right">
-                                        <button class="btn btn-primary" type="submit">PDF</button>
+                                        <button class="btn btn-primary" type="submit">ПДФ</button>
+                                    </form>
+                                    <form action="/finances/{{$contract->id}}/edit" method="GET" class="pull-right">
+                                        <button class="btn btn-primary" type="submit">Финансы</button>
                                     </form>
                                 </div>
                             </article>

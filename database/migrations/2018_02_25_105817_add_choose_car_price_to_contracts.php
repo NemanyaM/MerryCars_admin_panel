@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddContractIdToEventsTable extends Migration
+class AddChooseCarPriceToContracts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddContractIdToEventsTable extends Migration
      */
     public function up()
     {
-        Schema::table('events', function (Blueprint $table) {
-            $table->integer('contract_id');
+        Schema::table('contracts', function (Blueprint $table) {
+            $table->integer('choose_car_price')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddContractIdToEventsTable extends Migration
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
-            //
+        Schema::table('contracts', function (Blueprint $table) {
+            $table->dropColumn('choose_car_price');
         });
     }
 }

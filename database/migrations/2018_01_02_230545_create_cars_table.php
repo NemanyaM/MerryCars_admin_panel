@@ -15,16 +15,20 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('partner');
             $table->string('car');
-            $table->string('model');
-            $table->string('plates');
-            $table->string('location')->nullable();
-            $table->string('price')->nullable();
-            $table->string('price_per_hour')->nullable();
-            $table->text('condition')->nullable();
-            $table->string('start_date')->nullable();
-            $table->string('end_date')->nullable();
+            $table->string('model')->nullable();
+            $table->string('plates')->nullable();
+            $table->string('our_price_no_season_workday')->nullable();
+            $table->string('our_price_no_season_weekend')->nullable();
+            $table->string('our_price_season_workday')->nullable();
+            $table->string('our_price_season_weekend')->nullable();
+            $table->string('partner_price_no_season_workday')->nullable();
+            $table->string('partner_price_no_season_weekend')->nullable();
+            $table->string('partner_price_season_workday')->nullable();
+            $table->string('partner_price_season_weekend')->nullable();
+            $table->string('owner')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('bank_account')->nullable();
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

@@ -17,6 +17,8 @@ class CreateContractsTable extends Migration
             $table->increments('id');
             $table->timestamp('date');
             $table->string('name');
+            $table->string('lastname');
+            $table->string('middlename');
             $table->string('car');
             $table->string('model')->nullable();
             $table->string('plates');

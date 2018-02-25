@@ -5,59 +5,80 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create New Car</div>
+                    <div class="panel-heading">Добавить Новую Машину</div>
 
                     <div class="panel-body">
                         <form action="/car" method="POST">
                             {{ csrf_field() }}
+
                             <div class="form-group">
-                                <label for="title">Partner:</label>
-                                <input type="text" class="form-control" id="partner" name="partner" placeholder="Partner..">
+                                <label for="title">Автомобиль:</label>
+                                <input type="text" class="form-control" id="car" name="car" placeholder="Автомобиль..">
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Car:</label>
-                                <input type="text" class="form-control" id="car" name="car" placeholder="Car..">
+                                <label for="title">Модель:</label>
+                                <input type="text" class="form-control" id="model" name="model" placeholder="Модель...">
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Model:</label>
-                                <input type="text" class="form-control" id="model" name="model" placeholder="Model...">
+                                <label for="body">Номер:</label>
+                                <input type="text" class="form-control" id="plates" name="plates" placeholder="Номер..">
                             </div>
 
                             <div class="form-group">
-                                <label for="body">Plates:</label>
-                                <input type="text" class="form-control" id="plates" name="plates" placeholder="Plates..">
+                                <label for="title">Наша цена/Несезон/Будни:</label>
+                                <input type="text" class="form-control" id="our_price_no_season_workday" name="our_price_no_season_workday" placeholder="Наша цена/Несезон/Будни..">
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Location:</label>
-                                <input type="text" class="form-control" id="location" name="location" placeholder="location">
+                                <label for="title">Наша цена/Несезон/выхи:</label>
+                                <input type="text" class="form-control" id="our_price_no_season_weekend" name="our_price_no_season_weekend" placeholder="Наша цена/Несезон/выхи..">
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Price:</label>
-                                <input type="text" class="form-control" id="price" name="price" placeholder="Price..">
+                                <label for="title">Наша цена/Сезон/Будни:</label>
+                                <input type="text" class="form-control" id="our_price_season_workday" name="our_price_season_workday" placeholder="Наша цена/Сезон/Будни..">
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Price per hour:</label>
-                                <input type="text" class="form-control" id="price_per_hour" name="price_per_hour" placeholder="Price per hour">
+                                <label for="title">Наша цена/Сезон/выхи:</label>
+                                <input type="text" class="form-control" id="our_price_season_weekend" name="our_price_season_weekend" placeholder="Наша цена/Сезон/выхи..">
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Condition:</label>
-                                <textarea class="form-control" id="condition" name="condition" rows="5"></textarea>
+                                <label for="title">Цена партнера/Несезон/будни:</label>
+                                <input type="text" class="form-control" id="partner_price_no_season_workday" name="partner_price_no_season_workday" placeholder="Цена парнера/Несезон/будни..">
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Start Date:</label>
-                                <input type="text" class="form-control" id="start_date" name="start_date" placeholder="Start date..">
+                                <label for="title">Цена партнера/Несезон/выхи:</label>
+                                <input type="text" class="form-control" id="partner_price_no_season_weekend" name="partner_price_no_season_weekend" placeholder="Цена парнера/Несезон/выхи..">
                             </div>
 
                             <div class="form-group">
-                                <label for="title">End Date:</label>
-                                <input type="text" class="form-control" id="end_date" name="end_date" placeholder="end_date">
+                                <label for="title">Цена партнера/Сезон/будни:</label>
+                                <input type="text" class="form-control" id="partner_price_season_workday" name="partner_price_season_workday" placeholder="Цена парнера/Сезон/будни..">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Цена партнера/Сезон/выхи:</label>
+                                <input type="text" class="form-control" id="partner_price_season_weekend" name="partner_price_season_weekend" placeholder="Цена парнера/Сезон/выхи..">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Владелец:</label>
+                                <input type="text" class="form-control" id="owner" name="owner" placeholder="Владелец..">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Телефон:</label>
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Телефон...">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Банк Аккаунт:</label>
+                                <input type="text" class="form-control" id="bank_account" name="bank_account" placeholder="Банк Аккаунт..">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>

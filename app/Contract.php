@@ -13,8 +13,12 @@ class Contract extends Model
 
     protected $guarded = [
         'name'
+        ,'lastname'
+        ,'middlename'
         ,'plates'
         ,'car'
+        ,'choose_car_price'
+        ,'amount_of_hours'
         ,'model'
         ,'address_deliver'
         ,'address_pickup'
@@ -33,9 +37,6 @@ class Contract extends Model
         ,'pre_price'
         ,'date'
     ];
-
-    use SoftDeletes;
-
 
     public function path()
     {

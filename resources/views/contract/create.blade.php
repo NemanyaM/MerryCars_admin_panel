@@ -14,12 +14,20 @@
                                 <label for="body">Date:</label>
                                 <input type="text" class="form-control" id="date" name="date" value={{ \Carbon\Carbon::now() }}>
                             </div>
-
-                            <div class="form-group">
+                            <div class="row">
+                            <div class="form-group col-xs-4">
                                 <label for="title">Name:</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="name">
                             </div>
-
+                            <div class="form-group col-xs-4">
+                                <label for="title">Middlename:</label>
+                                <input type="text" class="form-control" id="name" name="middlename" placeholder="middlename">
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label for="title">Surname:</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="lastname">
+                            </div>
+                            </div>
                             <div class="form-group">
                                 <label for="car">Pick the car: </label>
                                 <select class="form-control" name="car">
@@ -48,6 +56,32 @@
                                         <option value="{{$car->plates}}">{{$car->plates}}</option>
                                 @endforeach
                                 </select>
+                            </div></br>
+
+                            {{--<div class="form-group">--}}
+                                {{--<div class="drop-down-wrapper">--}}
+                                    {{--<select class="form-control">--}}
+                                        {{--<option value="">Цена</option>--}}
+                                        {{--<option value="{{$car->our_price_no_season_workday}}">Наша цена/Несезон/Будни</option>--}}
+                                        {{--<option value="{{$car->our_price_no_season_weekend}}">Наша цена/Несезон/Выхи</option>--}}
+                                        {{--<option value="{{$car->our_price_season_workday}}">Наша цена/Сезон/Будни</option>--}}
+                                        {{--<option value="{{$car->our_price_season_weekend}}">Наша цена/Сезон/Выхи</option>--}}
+                                        {{--<option value="{{$car->partner_price_no_season_workday}}">Цена парнера/Несезон/Будни</option>--}}
+                                        {{--<option value="{{$car->partner_price_no_season_weekend}}">Цена парнера/Несезон/Выхи</option>--}}
+                                        {{--<option value="{{$car->partner_price_season_workday}}">Цена парнера/Сезон/Будни</option>--}}
+                                        {{--<option value="{{$car->partner_price_season_weekend}}">Цена парнера/Сезон/Выхи</option>--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+
+                            <div class="form-group">
+                                <label for="title">Car Price:</label>
+                                <input type="text" class="form-control" id="choose_car_price" name="choose_car_price" placeholder="car price">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Amount of hours:</label>
+                                <input type="text" class="form-control" id="amount_of_hours" name="amount_of_hours" placeholder="hours">
                             </div>
 
                             <div class="form-group">
@@ -129,7 +163,34 @@
     </div>
     <script>
 
-        $(document).ready(function(){
+//        $(document).ready(function(){
+//
+//            $(".drop-down-wrapper select").on("change",function(){
+//                var selVal = $(this).val();
+//                $("#choose_car_price").val(selVal);
+//            });
+//        });
+
+            $(document).ready(function() {
+                sum();
+                $("#choose_car_price, #amount_of_hours, #plus_hours, #decorations_price, #extras").on("keydown keyup", function() {
+                    sum();
+                });
+            });
+
+            function sum() {
+                var choose_car_price = document.getElementById('choose_car_price').value;
+                var amount_of_hours = document.getElementById('amount_of_hours').value;
+                var plus_hours = document.getElementById('plus_hours').value;
+                var decorations_price = document.getElementById('decorations_price').value;
+                var extras = document.getElementById('extras').value;
+                var result = (parseInt(choose_car_price) * parseInt(amount_of_hours)) + (parseInt(choose_car_price) * parseInt(plus_hours))
+                +(parseInt(decorations_price) + parseInt(extras));
+                if (!isNaN(result)) {
+                    document.getElementById('total_price').value = result;
+                }
+            }
+
             $("#StartDate").datepicker({
                 dateFormat: 'yy-mm-dd',
                 numberOfMonths: 2,
@@ -144,8 +205,6 @@
                     $("#StartDate").datepicker("option","maxDate", selected)
                 }
             });
-        });
-
 
     </script>
 

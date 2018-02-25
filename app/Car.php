@@ -12,15 +12,19 @@ class Car extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'partner'
-        ,'car'
+        'car'
         ,'model'
         ,'plates'
-        ,'location'
-        ,'price'
-        ,'price_per_hour'
-        ,'condition'
-        ,'start_date'
-        ,'end_date'
+        ,'our_price_no_season_workday'
+        ,'our_price_no_season_weekend'
+        ,'our_price_season_workday'
+        ,'our_price_season_weekend'
+        ,'partner_price_no_season_workday'
+        ,'partner_price_no_season_weekend'
+        ,'partner_price_season_workday'
+        ,'partner_price_season_weekend'
+        ,'owner'
+        ,'phone'
+        ,'bank_account'
     ];
 }

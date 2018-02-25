@@ -22,10 +22,10 @@ class EventController extends Controller
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
-                    $value->title,
+                    $value->car,
                     true,
-                    new \DateTime($value->start_date),
-                    new \DateTime($value->end_date.' +1 day'),
+                    new \DateTime($value->event_date),
+                    new \DateTime($value->time_to_finish.' +1 day'),
                     null,
                     // Add color and link on event
                     [
