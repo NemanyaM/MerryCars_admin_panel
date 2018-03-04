@@ -10,6 +10,7 @@ Route::get('/home', function () {
 Route::resource('/contract', 'ContractController');
 Route::resource('/car', 'CarController');
 Route::resource('/finances', 'FinanceController');
+Route::resource('/diaries', 'DiaryController');
 Route::get('/events', 'EventController@index');
 Route::get('/pdf/{id}', 'PDFController@pdf');
 Auth::routes();

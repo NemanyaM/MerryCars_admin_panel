@@ -26,7 +26,7 @@
                 <div class="panel-title pull-left">
                     Merry Cars Calendar
                 </div>
-                <div class="panel-title pull-right"><a href="/contract  ">Back to admin page</a></div>
+                <div class="panel-title pull-right"><a href="/contract">Back to admin page</a></div>
                 <div class="clearfix"></div>
             </div>
         </div>

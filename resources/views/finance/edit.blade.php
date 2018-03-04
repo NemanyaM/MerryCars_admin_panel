@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit Finance</div>
+                    <div class="panel-heading">Отредактировать Финансы</div>
 
                     <div class="panel-body">
                         <form action="/finances/{{$finance->id}}" method="POST" enctype="multipart/form-data">
@@ -126,7 +126,7 @@
                                 <textarea class="form-control" rows="5" name="comments"></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Отправить</button>
                         </form>
                     </div>
                 </div>

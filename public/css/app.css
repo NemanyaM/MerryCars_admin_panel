@@ -8050,6 +8050,7 @@ button.close {
 
 .pull-right {
   float: right !important;
+  padding: 2px;
 }
 
 .pull-left {

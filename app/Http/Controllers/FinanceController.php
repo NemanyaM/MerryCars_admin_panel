@@ -108,7 +108,7 @@ class FinanceController extends Controller
         } catch (\Exception $e){
             DB::rollback();
 
-            return back('No success saving data');
+            return redirect('/contract');
         }
 
     }

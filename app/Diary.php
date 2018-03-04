@@ -29,7 +29,6 @@ class Diary extends Model
         , 'amount_to_pay_contractor'
         , 'paid'
         , 'comments'
-        , 'paid'
         , 'notification'
         , 'question'
     ];

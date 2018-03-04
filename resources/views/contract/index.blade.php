@@ -12,15 +12,18 @@
                             <article>
                                 <h4>
                                     <a href="{{ $contract->path() }}">
-                                        {{$contract->created_at->diffForHumans()}}
+                                        {{\Carbon\Carbon::parse($contract->date)->toFormattedDateString()}}
                                     </a>
                                 </h4>
-                                <div class="body">{{$contract->name}}
+                                <div class="body">{{$contract->name}} {{$contract->middlename}} {{$contract->lastname}}
                                     <form action="/pdf/{{ $contract->id }}" method="GET" class="pull-right">
                                         <button class="btn btn-primary" type="submit">ПДФ</button>
                                     </form>
                                     <form action="/finances/{{$contract->id}}/edit" method="GET" class="pull-right">
                                         <button class="btn btn-primary" type="submit">Финансы</button>
+                                    </form>
+                                    <form action="/diaries/{{$contract->id}}/edit" method="GET" class="pull-right">
+                                        <button class="btn btn-primary" type="submit">Дневник Заказов</button>
                                     </form>
                                 </div>
                             </article>

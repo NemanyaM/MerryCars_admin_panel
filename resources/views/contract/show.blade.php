@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a href="#"> {{ $contract->id }}</a>
-                        {{$contract->name}}
+                        {{$contract->name}} {{$contract->middlename}} {{$contract->lastname}}
                     </div>
                     <div class="panel-body">{{$contract->date}}</div>
                 </div>

@@ -54,6 +54,7 @@ class ContractController extends Controller
             $contract->lastname = $request->get('lastname');
             $contract->middlename = $request->get('middlename');
             $contract->car = $request->get('car');
+            $contract->car = $request->get('car');
             $contract->choose_car_price = $request->get('choose_car_price');
             $contract->amount_of_hours = $request->get('amount_of_hours');
             $contract->model = $request->get('model');
@@ -83,6 +84,16 @@ class ContractController extends Controller
 
             $diary = new Diary;
             $diary->contract_id = $contract->id;
+            $diary->car = $request->get('car');
+            $diary->extras = $request->get('extras');
+            $diary->decorations = $request->get('decorations_price');
+            $diary->hours_amount = $request->get('amount_of_hours');
+            $diary->hours_to_deliver = $request->get('plus_hours');
+            $diary->price_per_hour = $request->get('choose_car_price');
+            $diary->pre_paid = $request->get('pre_price');
+            $diary->sum = $request->get('total_price');
+            $diary->address_to_deliver = $request->get('address_deliver');
+            $diary->time_to_deliver = $request->get('time');
             $diary->reservation_date = $request->get('date');
             $diary->event_date = $request->get('start_date');
             $diary->save();
@@ -101,7 +112,7 @@ class ContractController extends Controller
         } catch (\Exception $e){
             DB::rollback();
 
-            return back('No success saving data');
+            return redirect('/contract');
         }
     }
     /**
