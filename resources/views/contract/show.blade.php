@@ -6,10 +6,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="#"> {{ $contract->id }}</a>
                         {{$contract->name}} {{$contract->middlename}} {{$contract->lastname}}
                     </div>
-                    <div class="panel-body">{{$contract->date}}</div>
+                    <div class="panel-body">{{\Carbon\Carbon::parse($contract->date)->toFormattedDateString()}}</div>
                 </div>
             </div>
         </div>

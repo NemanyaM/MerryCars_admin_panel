@@ -5675,6 +5675,7 @@ tbody.collapse.in {
 @media (min-width: 768px) {
   .navbar-left {
     float: left !important;
+    padding: 10px;
   }
 
   .navbar-right {

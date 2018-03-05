@@ -20,8 +20,15 @@ class PDFController extends Controller
 
         $contract  = Contract::where('id', $id)->first();
 
-        $pdf = $this->pdf->loadView('pdf', ['contract' => $contract]);
+        $sum = $this->sum($contract);
+
+        $pdf = $this->pdf->loadView('pdf', ['contract' => $contract, 'sum' => $sum]);
 
         return $pdf->download('contract_' . $contract->created_at. '.pdf');
+    }
+
+    public function sum($model)
+    {
+        return ($model->choose_car_price * $model->amount_of_hours) + ($model->choose_car_price * $model->plus_hours);
     }
 }

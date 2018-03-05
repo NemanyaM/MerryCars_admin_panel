@@ -17,11 +17,11 @@
             <div class="container">
                 <h3 style="text-align: center">Договор на оказание транспортных услуг</h3>
                 <div class="row">
-                    <div class="col-md-6">г. Санкт-Петербург</div><div class="col-md-6"><span class="pull-right">{{\Carbon\Carbon::now()->toDateString()}}</span></div>
+                    <div class="col-md-6">г. Санкт-Петербург</div><div class="col-md-6"><span class="pull-right">{{\Carbon\Carbon::now()->toFormattedDateString()}}</span></div>
                 </div>
                 <div class="row">
                     <p>
-                        ООО «МерриКарс» в лице генерального директора Бессоновой А.И., действующей на основании «Устава» в дальнейшем именуемый "Исполнитель", с одной стороны, и {{$contract->name }} именуемый в дальнейшем "Заказчик", с другой стороны, заключили настоящий договор о нижеследующем.
+                        ООО «МерриКарс» в лице генерального директора Бессоновой А.И., действующей на основании «Устава» в дальнейшем именуемый "Исполнитель", с одной стороны, и {{$contract->name }} {{$contract->lastname }} именуемый в дальнейшем "Заказчик", с другой стороны, заключили настоящий договор о нижеследующем.
                     </p>
                 </div>
                 <div class="row">
@@ -34,26 +34,26 @@
                 </div>
                 <div class="row">
                     <p>
-                        Марка, модель: &nbsp;&nbsp;&nbsp;&nbsp; <span style="text-decoration: underline">{{$contract->car}}</span>, <strong>{{$contract->model}}</strong>.
+                        Марка, модель: &nbsp;&nbsp;&nbsp;&nbsp; <span>{{$contract->car}}</span>, <strong>{{$contract->model}}</strong>.
                     </p>
 
                     <p>
-                        Рег. номер: &nbsp;&nbsp;&nbsp;&nbsp;  {{$contract->model}}.<br/>
+                        Рег. номер: &nbsp;&nbsp;&nbsp;&nbsp;  {{$contract->plates}}.<br/>
                         именуемое в дальнейшем "Транспорт", во временное владение и пользование за плату, а также оказывает Арендатору своими силами услуги по управлению транспортом.
                     </p>
                     <p>
-                        1.2 Настоящий договор заключен на дату: {{$contract->date}} и время с {{$contract->model}} до{{$contract->model}} (+{{$contract->model}} ч).<br/>
+                        1.2 Настоящий договор заключен на дату: {{\Carbon\Carbon::parse($contract->date)->toFormattedDateString()}} и время с {{$contract->time}} до{{$contract->endtime}} (+{{$contract->plus_hours}} ч).<br/>
                         Подача по адресу: {{$contract->address_deliver}}.
                     </p>
                 </div>
                 <div class="row">
                     <p>
-                        1.3 Контактное лицо и телефон: &nbsp;&nbsp;&nbsp; {{$contract->name}},&nbsp; {{$contract->phone}}.
+                        1.3 Контактное лицо и телефон: &nbsp;&nbsp;&nbsp; {{$contract->contact_person}},&nbsp; {{$contract->phone}}.
                     </p>
                 </div>
                 <div class="row">
                     <p>
-                        1.4 Размер арендной платы составляет:&nbsp;&nbsp;&nbsp; {{$contract->phone}} .
+                        1.4 Размер арендной платы составляет:&nbsp;&nbsp;&nbsp; {{$sum}}.00 руб.
 
                         Арендная плата вносится в следующие сроки и в следующем порядке:
 
@@ -65,16 +65,16 @@
                 </div>
                 <div class="row">
                     <p>
-                        1.5 Услуга по украшению автомобиля (наименование и стоимость ): &nbsp;&nbsp;&nbsp;&nbsp; {{$contract->phone}}.
+                        1.5 Услуга по украшению автомобиля (наименование и стоимость ): &nbsp;&nbsp;&nbsp;&nbsp;{{$contract->decorations}}, {{$contract->decorations_price}}.00 руб.
                     </p>
                     <p>
-                        1.6 Прочие услуги:  &nbsp;&nbsp;&nbsp;&nbsp; {{$contract->name}}.
+                        1.6 Прочие услуги:  &nbsp;&nbsp;&nbsp;&nbsp; {{$contract->extras}}.00 руб.
                     </p>
                     <p>
-                        1.7 Итого: &nbsp;&nbsp;&nbsp;&nbsp; {{$contract->name}}.
+                        1.7 Итого: &nbsp;&nbsp;&nbsp;&nbsp; {{$contract->total_price}}.00 руб.
                     </p>
                     <p>
-                        1.8 Размер задатка составляет: .&nbsp;&nbsp;&nbsp;&nbsp; {{$contract->name}}.
+                        1.8 Размер задатка составляет: .&nbsp;&nbsp;&nbsp;&nbsp; {{$contract->pre_price}}.00 руб.
                     </p>
                 </div>
                 <div class="row">
@@ -138,30 +138,27 @@
                         </tr>
                         <tr>
                             <td>ООО «МерриКарс»</td>
-                            <td>Ф.</td>
+                            <td>{{$contract->lastname}}</td>
                         </tr>
                         <tr>
                             <td>ИНН 7805346942 КПП 780501001</td>
-                            <td>И.</td>
+                            <td>{{$contract->name}}</td>
                         </tr>
                         <tr>
                             <td>Банк Филиал «Санкт-Петербург»<br/>
                                 ОАО «АЛЬФА-БАНК»</td>
-                            <td>О.</td>
+                            <td>{{$contract->middlename}}</td>
                         </tr>
                         <tr>
                             <td>БИК №044030786<br/> р/с № 40702810932030002372</td>
-                            <td>Паспорт:</td>
+                            <td>Паспорт: 022222222</td>
                         </tr>
                         <tr>
                             <td>Адрес: г. Санкт-Петербург<br/>
                                 Ул. Маршала Говорова<br/>
                                 д.29 офис 313<br/>
                             </td>
-                            <td>Адрес:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</td>
+                            <td>{{$contract->address_deliver}}</td>
                         </tr>
                         <tr>
                             <td>Подпись</td>
